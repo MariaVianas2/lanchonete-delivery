@@ -12,6 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/pedidos")
@@ -65,4 +69,13 @@ public class PedidoController {
         Pedido salvo = pedidoRepo.save(pedido);
         return ResponseEntity.ok(salvo);
     }
+
+    @PutMapping("/{id}/status")
+    public ResponseEntity<?> atualizarStatus(@PathVariable Long id, @RequestBody String status) {
+        return pedidoRepo.findById(id).map(p -> {
+            p.setStatus(status.replace("\"", "")); 
+            return ResponseEntity.ok(pedidoRepo.save(p));
+        }).orElse(ResponseEntity.notFound().build());
+}
+
 }

@@ -78,4 +78,8 @@ public class Pedido {
         item.setPedido(this);
         this.itens.add(item);
     }
+
+    public double getTotal(){
+        return calcularTotal();
+    }
 }

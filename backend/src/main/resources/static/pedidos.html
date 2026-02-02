@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lanchonete - Pedidos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h1>🧾 Pedidos</h1>
+
+      <div class="top-actions">
+        <button class="btn-secondary" onclick="window.location.href='produtos.html'">Produtos</button>
+        <button class="btn-secondary" onclick="window.location.href='clientes.html'">Clientes</button>
+        <button class="btn-danger" onclick="logout()">Sair</button>
+      </div>
+    </div>
+
+    <p id="userWelcome" class="msg"></p>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Novo Pedido</h2>
+
+        <label>Cliente</label>
+        <select id="clienteSelect"></select>
+
+        <hr class="sep">
+
+        <h3>Adicionar Item</h3>
+        <label>Produto</label>
+        <select id="produtoSelect"></select>
+
+        <label>Quantidade</label>
+        <input id="qtdInput" type="number" min="1" value="1" />
+
+        <button onclick="adicionarItem()">Adicionar no pedido</button>
+
+        <h3>Itens do pedido</h3>
+        <ul id="itensLista" class="list"></ul>
+
+        <button onclick="criarPedido()">Finalizar pedido</button>
+
+        <p id="pedidoMsg" class="msg"></p>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Pedidos existentes</h2>
+          <button class="btn-secondary" onclick="carregarPedidos()">Atualizar</button>
+        </div>
+        <ul id="pedidosLista" class="list"></ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

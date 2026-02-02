@@ -5,8 +5,7 @@ import com.eduarda.lanchonete.dto.LoginRequest;
 import com.eduarda.lanchonete.model.Usuario;
 import com.eduarda.lanchonete.repository.UsuarioRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*; 
 
 @RestController
 @RequestMapping("/auth")
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final UsuarioRepository usuarioRepo;
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public AuthController(UsuarioRepository usuarioRepo) {
         this.usuarioRepo = usuarioRepo;
@@ -36,7 +34,7 @@ public class AuthController {
         Usuario u = new Usuario();
         u.setNome(req.getNome());
         u.setEmail(req.getEmail());
-        u.setSenhaHash(encoder.encode(req.getSenha())); 
+        u.setSenha(req.getSenha()); 
 
         Usuario salvo = usuarioRepo.save(u);
 
@@ -51,7 +49,7 @@ public class AuthController {
         }
 
         Usuario u = usuarioOpt.get();
-        boolean ok = encoder.matches(req.getSenha(), u.getSenhaHash());
+        boolean ok = u.getSenha().equals(req.getSenha());
         if (!ok) {
             return ResponseEntity.status(401).body("Email ou senha inválidos");
         }

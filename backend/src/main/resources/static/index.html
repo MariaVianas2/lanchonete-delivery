@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lanchonete - Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h1>🍟 Lanchonete Delivery</h1>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Entrar</h2>
+        <label>Email</label>
+        <input id="loginEmail" type="email" placeholder="email@exemplo.com" />
+
+        <label>Senha</label>
+        <input id="loginSenha" type="password" placeholder="••••••••" />
+
+        <button onclick="login()">Login</button>
+        <p id="loginMsg" class="msg"></p>
+      </div>
+
+      <div class="card">
+        <h2>Criar Conta</h2>
+        <label>Nome</label>
+        <input id="cadNome" type="text" placeholder="Seu nome" />
+
+        <label>Email</label>
+        <input id="cadEmail" type="email" placeholder="email@exemplo.com" />
+
+        <label>Senha</label>
+        <input id="cadSenha" type="password" placeholder="Crie uma senha" />
+
+        <button onclick="cadastrar()">Cadastrar</button>
+        <p id="cadMsg" class="msg"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

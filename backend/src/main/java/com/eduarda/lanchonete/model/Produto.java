@@ -16,15 +16,17 @@ public class Produto {
     private String nome;
     private String descricao;
     private double preco;
+    private String imagemUrl;
 
     public Produto(){
     }
 
-    public Produto(Long id, String nome, String descricao, double preco){
+    public Produto(Long id, String nome, String descricao, double preco, String imagemUrl){
         this.id=id;
         this.nome=nome;
         this.descricao=descricao;
         this.preco=preco;
+        this.imagemUrl=imagemUrl;
     }
     
     public Long getId(){
@@ -57,6 +59,10 @@ public class Produto {
 
     public void setPreco(double preco){
         this.preco=preco;
+    }
+
+    public String getImagemUrl(){
+        return imagemUrl;
     }
 
     public String resumo(){

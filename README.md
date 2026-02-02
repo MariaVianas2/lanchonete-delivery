@@ -5,7 +5,7 @@ Sistema fullstack de **lanchonete delivery** desenvolvido para fins de aprendiza
 ## 🛠️ Tecnologias
 
 ### Backend
-- Java 17
+- Java 25
 - Spring Boot
 - Spring Data JPA
 - MySQL
